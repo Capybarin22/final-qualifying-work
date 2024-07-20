@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%
+}
+
+main {
+    width: 100%;
+    height: auto
+}
+
+.map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%
+}
+
+.ol-viewport {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    touch-action: none
+}
+
+.ol-rotate {
+    position: absolute;
+    top: 10px;
+    right: 10px
+}
+
+.ol-rotate-reset {
+    background-color: transparent;
+    border: none;
+    cursor: pointer
+}
+
+.ol-compass {
+    font-size: 20px;
+    color: #333;
+    transform: rotate(0rad)
+}
+
+.ol-zoomslider {
+    position: absolute;
+    z-index: 1;
+    top: 87% !important;
+    width: 17px;
+    height: 100px;
+    border: 2px solid #000;
+    background-color: #fff !important;
+    left: 100px !important;
+    transform: rotate(90deg)
+}
+
+.ol-zoomslider-thumb {
+    position: absolute;
+    left: -.25em;
+    top: 0;
+    width: 100%;
+    height: 15px;
+    margin: 0;
+    background-color: blue !important;
+    border: 1px solid #000 !important
+}
+
+.layerSwitcherContainer {
+    position: absolute;
+    top: 0;
+    margin: 5px 0 0 8px;
+    width: 200px;
+    height: 30px
+}
+
+button#toggle-layerswitcher {
+    border: 1px solid #000;
+    width: 210px;
+    background-color: #efd5c3;
+    height: 30px;
+    border-radius: 8px
+}
+
+.menu-item {
+    display: flex;
+    width: 100%;
+    margin: 2.5%
+}
+
+.opacityOfLayersRange {
+    height: 20px;
+    background: #4CAF50;
+    cursor: pointer
+}
+
+.opacityOfLayersRange:nth-child(even):nth-child(-n+10) {
+    border-bottom: 1px solid gray
+}
+
+.layersDescriptionContainer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 750px;
+    height: 50px;
+    right: 100%;
+    background-color: #eee;
+    transition: margin-left .5s
+}
+
+.descriptionBox {
+    display: none;
+    position: fixed;
+    top: 100px;
+    width: 750px;
+    list-style: none;
+    transition: display .25s
+}
+
+.descriptionBox.active {
+    display: block;
+    background: linear-gradient(to bottom, #eee, #a8a8a8)
+}
+
+.functionsContainer {
+    position: absolute;
+    z-index: 1;
+    left: 45%;
+    height: 150px;
+    background-color: #dcd0ff;
+    margin: -75px auto 0;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}
+
+.functionsContainerButton {
+    width: 50px;
+    height: 50px;
+    margin: 75px 25px 0
+}
+
+.functionsContainerButtonImg {
+    border-radius: 5px;
+    width: 46px;
+    height: 46px
+}
+
+.arrowContainer {
+    position: fixed;
+    right: 20px;
+    top: 20px
+}
+
+#arrowMenuToggle {
+    position: absolute;
+    margin: 2px 0 0 -50px;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    opacity: 0;
+    cursor: pointer
+}
+
+.arrowMenuButton {
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 2px 0 0 -50px;
+    background-color: #eee;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: transform .3s ease;
+    border: 1px solid #000
+}
+
+.arrowMenuButton::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    border-left: 3px solid #000;
+    border-bottom: 3px solid #000;
+    transform-origin: 50% 50%
+}
+
+#arrowMenuToggle:checked+.arrowMenuButton {
+    transform: rotate(180deg)
+}
+
+#arrowMenuToggle:checked+.arrowMenuButton::before {
+    transform: translate(-50%, -50%) rotate(45deg)
+}
+
+footer {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center
+}
+
+.yearSliderContainer {
+    width: 25%;
+    height: 25px;
+    position: absolute;
+    top: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c5a883;
+    border-radius: 10px
+}
+
+.yearSlider {
+    width: 98%;
+    height: 15px;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none
+}
+
+.yearSlider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: #007bff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all .2s ease
+}
+
+.yearSlider::-moz-range-thumb:hover {
+    transform: scale(1.1)
+}
+
+.yearSlider:focus {
+    outline: 2px solid #007bff
+}
+
+.yearSliderTooltip {
+    position: absolute;
+    bottom: 115%;
+    background: #212529;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 1.4;
+    opacity: 1;
+    transition: opacity .3s ease-in-out
+}
+
+#polygonElementsContainer {
+    width: 221px;
+    position: fixed;
+    top: 300px;
+    left: 2px
+}
+
+.polygonItem {
+    width: 210px;
+    padding: 0 0 0 10px;
+    border: 1px solid #000;
+    border-bottom: none;
+    border-left: none;
+    background-color: #C8E6C9
+}
+
+input.polygonItems {
+    margin: 0 0 0 5px
+}
+
+.marker-popup {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 300px
+}
+
+.marker-popup h3 {
+    margin-top: 0
+}
+
+.marker-popup img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px
+}
+
+.ol-scale-line {
+    margin: 1px 1px 2.6% 60px !important
+}
+
+.legendContainer {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    right: 2.5%;
+    background-color: #fff;
+    opacity: .75
+}
+
+.legendContainer:hover {
+    opacity: 1
+}
+
+.legend-item {
+    display: flex;
+    height: 24px
+}
+
+h5 {
+    height: 24px;
+    display: flex;
+    align-items: center
+}
+
+h3 {
+    margin: 5px
+}
+
+.layer-switcher {
+    display: none;
+    background-color: #fff;
+    border-radius: 10px 0 0 10px;
+    position: absolute;
+    top: 5px;
+    left: 5px
+}
+
+li.layer {
+    padding: 1px;
+    list-style-type: none
+}
+
+.layer:nth-of-type(odd):nth-child(n+3):nth-child(-n+11) {
+    border-bottom: 1px solid gray;
+}
+
+.opacityManageContainer {
+    position: absolute;
+    top: 5px;
+    left: 222px;
+    width: 150px;
+    height: 295px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-left: 1px solid #000;
+    border-radius: 0 5px 5px 0;
+    z-index: 5;
+    display: none;
+    flex-direction: column
+}
+
+.opacityManageContainerHeader {
+    display: flex;
+    align-items: center;
+    background-color: #efd5c3;
+    justify-content: center;
+    width: 100%;
+    height: 30px;
+    border-radius: 0 5px 0 0
+}
+
+.opacityManagersContainer {
+    width: 100%;
+    position: absolute;
+    top: 88px
+}
+
+
+/* Стили для всплывающей подсказки */
+.marker-popup {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    width: 300px;
+    /* Ширина всплывающей подсказки */
+}
+
+.marker-popup h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.marker-popup img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.marker-popup p {
+    margin: 10px 0;
+    font-size: 0.9em;
+}
+
+/* Стили для контейнера сил */
+.forces-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.soviet-forces,
+.german-forces {
+    text-align: left;
+    width: 48%;
+    /* Ширина блока с силами */
+}
+
+.soviet-forces h4,
+.german-forces h4 {
+    margin-top: 0;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+}
+
+.soviet-forces p,
+.german-forces p {
+    margin: 5px 0;
+    font-size: 0.8em;
+}
