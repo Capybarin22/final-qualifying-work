@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Web-портал для историко-географических исследований</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/openlayers/dist/ol.css" />
+	<script src="https://cdn.jsdelivr.net/npm/openlayers/dist/ol.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/ol-layerswitcher"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@turf/turf@6"></script>
+</head>
+
+<body>
+	<main>
+		<div class="map" id="map"></div>
+		<div class="layersListContainer" id="layersList"></div>
+		<div class="layersDescriptionContainer" id="layersDescription"></div>
+	</main>
+	<div class="layerSwitcherContainer">
+		<button id="toggle-layerswitcher">Показать/Скрыть менеджер слоёв</button>
+	</div>
+	<div class="opacityManageContainer">
+		<p class="opacityManageContainerHeader">Прозрачность(%)</p>
+		<div class="opacityManagersContainer">
+		</div>
+	</div>
+	<div class="functionsContainer">
+		<button class="functionsContainerButton distance">
+			<img src="../Data/Icons/ruler.png" alt="" class="functionsContainerButtonImg">
+		</button>
+		<button class="functionsContainerButton polygon">
+			<img src="../Data/Icons/pencil.png" alt="" class="functionsContainerButtonImg">
+		</button>
+	</div>
+	<div class="arrowContainer">
+<!-- 		<input id="arrowMenuToggle" type="checkbox">
+		<label class="arrowMenuButton" for="arrowMenuToggle"><span></span></label> -->
+	</div>
+	<div class="legendContainer">
+	</div>
+	<footer>
+		<div class="yearSliderContainer">
+			<div class="yearSliderTooltip" id="yearSliderTooltip"></div>
+			<input type="range" min="1941" max="1945" class="yearSlider" id="yearRange">
+		</div>
+	</footer>
+	<script src="../Data/monuments.js"></script>
+	<script src="../Data/battles.js"></script>
+	<script src="../JS/raster.js"></script>
+	<script src="../JS/map.js"></script>
+	<script src="../JS/measurements.js"></script>
+	<script src="../JS/script.js"></script>
+	<script src="../JS/vector.js"></script>
+</body>
+
+</html>
